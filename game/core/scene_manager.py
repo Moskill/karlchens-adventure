@@ -1,4 +1,4 @@
-from ursina import Entity, destroy
+from ursina import Entity
 
 class SceneManager(Entity):
     def __init__(self):
@@ -6,16 +6,12 @@ class SceneManager(Entity):
         self.current = None
 
     def set_scene(self, scene):
-        # Alte Szene sauber schließen
-        if self.current:
-            try:
-                self.current.exit()
-            except Exception as e:
-                print("Scene exit error:", e)
+        if self.current and hasattr(self.current, "exit"):
+            self.current.exit()
         self.current = scene
-        self.current.enter()
+        if hasattr(self.current, "enter"):
+            self.current.enter()
 
-    # Wird von Ursina automatisch aufgerufen (weil Entity)
     def update(self):
         if self.current and hasattr(self.current, "update"):
             self.current.update()

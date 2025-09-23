@@ -1,35 +1,35 @@
-from ursina import Entity, Panel, Text, Button, color, camera
-from .gameplay import Gameplay
+from ursina import Entity, Panel, Text, Button, color, camera, application
+from .park import Park
 
 class MainMenu:
     def __init__(self, scene_manager):
         self.sm = scene_manager
-        self.ui_root = None
+        self.ui = None
 
     def enter(self):
-        self.ui_root = Entity(parent=camera.ui)
-        Panel(parent=self.ui_root, z=0.1, scale=(0.7, 0.6),
-              color=color.rgba(0, 0, 0, 180), model='quad', roundness=0.02)
+        self.ui = Entity(parent=camera.ui)
+        Panel(parent=self.ui, z=0.1, scale=(0.7, 0.55),
+              color=color.rgba(0, 0, 0, 180), roundness=0.02)
+        Text("Karls Park – Prototype", parent=self.ui, y=0.18, scale=1.6, color=color.azure)
 
-        Text("Karlchens Adventure", parent=self.ui_root, y=0.2, origin=(0,0), scale=2, color=color.azure)
+        b1 = Button(text="Spiel starten", parent=self.ui, y=0.05, scale=(0.45, 0.08))
+        b1.on_click = lambda: self.sm.set_scene(Park(self.sm))
 
-        start_btn = Button(text='Spiel starten', parent=self.ui_root, y=0.05, scale=(0.4, 0.08))
-        start_btn.on_click = lambda: self.sm.set_scene(Gameplay(self.sm))
+        b2 = Button(text="Fortsetzen (Stub)", parent=self.ui, y=-0.07, scale=(0.45, 0.08))
+        b2.on_click = lambda: self.sm.set_scene(Park(self.sm))  # später: Savegame laden
 
-        options_btn = Button(text='Optionen (Stub)', parent=self.ui_root, y=-0.08, scale=(0.4, 0.08))
-        options_btn.on_click = lambda: print('TODO: Optionen')
+        b3 = Button(text="Beenden", parent=self.ui, y=-0.19, scale=(0.45, 0.08))
+        b3.on_click = application.quit
 
-        quit_btn = Button(text='Beenden', parent=self.ui_root, y=-0.21, scale=(0.4, 0.08))
-        quit_btn.on_click = lambda: __import__('ursina').ursina.application.quit()
-
-        Text("ESC: Beenden", parent=self.ui_root, y=-0.33, color=color.gray)
+        Text("ESC: Beenden", parent=self.ui, y=-0.3, color=color.gray)
 
     def input(self, key):
-        if key == 'escape':
-            __import__('ursina').ursina.application.quit()
+        if key == "escape":
+            from ursina import application
+            application.quit()
 
     def exit(self):
-        if self.ui_root:
-            self.ui_root.disable()
-            self.ui_root.parent = None
-            self.ui_root = None
+        if self.ui:
+            self.ui.disable()
+            self.ui.parent = None
+            self.ui = None

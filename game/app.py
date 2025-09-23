@@ -1,7 +1,7 @@
 from ursina import Ursina, window, color
 from .core.scene_manager import SceneManager
-from .settings import WINDOW_TITLE
 from .scenes.main_menu import MainMenu
+from .settings import WINDOW_TITLE
 
 def boot_app():
     app = Ursina()

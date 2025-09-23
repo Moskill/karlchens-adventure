@@ -1,0 +1,30 @@
+[
+  {
+    "id": "strawberry_field_v1",
+    "name": "Erdbeerfeld-standard",
+    "class":"plain",
+    "visitors": 200,
+    "size": [2, 2],
+    "consumption": 10,
+    "bandwidth": 0,
+    "price": 10000,
+    "depndencies": ["street", "water"],
+    "harvest_cycle": 3600,
+    "satisfaction": 0,
+    "turnover": 5000
+  },
+  {
+    "id": "strawberry_field_v2",
+    "name": "Erdbeerfeld-verbessert",
+    "class":"plain",
+    "visitors": 250,
+    "size": [2, 3],
+    "consumption": 20,
+    "bandwidth": 0,
+    "price": 15000,
+    "depndencies": ["street", "water"],
+    "harvest_cycle": 3600,
+    "satisfaction": 0,
+    "turnover": 800
+  }
+]
