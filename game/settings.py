@@ -1,0 +1,4 @@
+WINDOW_TITLE = "Karlchens Adventure"
+PLAYER_SPEED = 5
+PLAYER_GRAVITY = 1
+PLAYER_JUMP = 1
