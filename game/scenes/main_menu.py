@@ -10,12 +10,12 @@ class MainMenu:
         self.ui = Entity(parent=camera.ui)
         Panel(parent=self.ui, z=0.1, scale=(0.7, 0.55),
               color=color.rgba(0, 0, 0, 180), roundness=0.02)
-        Text("Karls Park – Prototype", parent=self.ui, y=0.18, scale=1.6, color=color.azure)
+        Text("Karlchens Adventure", parent=self.ui, x=-0.32, y=0.38, scale=2.6, color=color.azure)
 
         b1 = Button(text="Spiel starten", parent=self.ui, y=0.05, scale=(0.45, 0.08))
         b1.on_click = lambda: self.sm.set_scene(Park(self.sm))
 
-        b2 = Button(text="Fortsetzen (Stub)", parent=self.ui, y=-0.07, scale=(0.45, 0.08))
+        b2 = Button(text="Fortsetzen", parent=self.ui, y=-0.07, scale=(0.45, 0.08))
         b2.on_click = lambda: self.sm.set_scene(Park(self.sm))  # später: Savegame laden
 
         b3 = Button(text="Beenden", parent=self.ui, y=-0.19, scale=(0.45, 0.08))

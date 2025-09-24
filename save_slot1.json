@@ -1,5 +1,10 @@
 {
   "version": 1,
-  "money": 500,
-  "fans": 10
+  "money": 0,
+  "fans": 10,
+  "grid_size": [
+    20,
+    20
+  ],
+  "buildings": []
 }
