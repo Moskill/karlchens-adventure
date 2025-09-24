@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "money": 0,
+  "money": 5000,
   "fans": 10,
   "grid_size": [
     20,

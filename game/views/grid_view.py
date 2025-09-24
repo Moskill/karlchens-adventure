@@ -11,23 +11,25 @@ class GridView:
             for y in range(h):
                 base = color.rgb(80,160,80) if (x+y)%2==0 else color.rgb(60,120,60)
                 self.tiles.append(Entity(model='cube', 
-                                        color=base, 
-                                        unlit=True, 
+                                        texture='grass',
+                                        unlit=True,
                                         collider=None,
-                                        position=(x*self.t, 0.01, y*self.t),
-                                        scale=(self.t, 0.02, self.t)))
+                                        position=(x*self.t, 0.0,  y*self.t), 
+                                        scale=(self.t, 0.01, self.t)))
         # Grid-Linien
-        for x in range(w+1):
-            Entity(model='cube', 
-                   color=color.black, 
-                   unlit=True, 
-                   collider=None,
-                   position=(x*self.t - 0.5*self.t, 0.02, (h*self.t - self.t)/2),
-                   scale=(0.02, 0.02, h*self.t))
-        for y in range(h+1):
-            Entity(model='cube', 
-                   color=color.black, 
-                   unlit=True, 
-                   collider=None,
-                   position=((w*self.t - self.t)/2, 0.02, y*self.t - 0.5*self.t),
-                   scale=(w*self.t, 0.02, 0.02))
+        # for x in range(w+1):
+        #     Entity(model='cube', 
+        #            color=color.black, 
+        #            unlit=True, 
+        #            collider=None,
+        #            position=(x*self.t - 0.5*self.t, 0.02, (h*self.t - self.t)/2),
+        #            scale=(0.02, 0.02, h*self.t))
+        # for y in range(h+1):
+        #     Entity(model='cube', 
+        #            color=color.black, 
+        #            unlit=True, 
+        #            collider=None,
+        #            position=((w*self.t - self.t)/2, 0.02, y*self.t - 0.5*self.t),
+        #            scale=(w*self.t, 0.02, 0.02))
+
+    
