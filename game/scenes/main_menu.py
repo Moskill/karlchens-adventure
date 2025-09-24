@@ -21,7 +21,7 @@ class MainMenu:
         b3 = Button(text="Beenden", parent=self.ui, y=-0.19, scale=(0.45, 0.08))
         b3.on_click = application.quit
 
-        Text("ESC: Beenden", parent=self.ui, y=-0.3, color=color.gray)
+        Text("ESC: Beenden", parent=self.ui, x=-0.05, y=-0.3, color=color.gray)
 
     def input(self, key):
         if key == "escape":
